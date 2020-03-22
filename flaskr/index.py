@@ -24,9 +24,12 @@ def update():
     try:
         if request.method == 'POST':
             boolean1 = request.form['boolean1']
-            if boolean1 == 0:
+            print(boolean1)
+            if str(boolean1) == '0':
+                print('false')
                 subprocess.call('screen -S main -X stuff "jester.proc.vertTum.io.inputs.doorClosed = False^M"',shell=True)
-            elif boolean1 == 1:
+            elif str(boolean1) == '1':
+                print('true')
                 subprocess.call('screen -S main -X stuff "jester.proc.vertTum.io.inputs.doorClosed = True^M"',shell=True)
             boolean2 = request.form['boolean2']
             integer1 = request.form['integer1']
