@@ -1,0 +1,4 @@
+{
+    'boolean1': 1,
+    'boolean2': 2,
+}

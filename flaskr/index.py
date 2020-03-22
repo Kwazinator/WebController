@@ -1,8 +1,11 @@
 from flask import (
     Blueprint, render_template, request
 )
-from flaskr.dataaccess.DeviceDAO import DeviceDAO
+
 import json
+
+from flaskr.dataaccess.DeviceDAO import DeviceDAO
+
 bp = Blueprint('index', __name__)
 
 @bp.route('/')
@@ -22,6 +25,11 @@ def update():
             boolean1 = request.form['boolean1']
             boolean2 = request.form['boolean2']
             integer1 = request.form['integer1']
+
+            '''with open('data.xml') as myfile:
+                data = myfile.read()'''
+
+
             DeviceDAO().update_graph_by_id(1,boolean1,boolean2,integer1)
             return 'OK'
         return '422'
