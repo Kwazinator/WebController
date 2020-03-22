@@ -2,6 +2,7 @@ from flask import (
     Blueprint, render_template, request
 )
 
+import subprocess
 import json
 
 from flaskr.dataaccess.DeviceDAO import DeviceDAO
@@ -23,6 +24,10 @@ def update():
     try:
         if request.method == 'POST':
             boolean1 = request.form['boolean1']
+            if boolean1 == 0:
+                subprocess.call('screen -S main -X stuff "jester.proc.vertTum.io.inputs.doorClosed = False^M"',shell=True)
+            elif boolean1 == 1:
+                subprocess.call('screen -S main -X stuff "jester.proc.vertTum.io.inputs.doorClosed = True^M"',shell=True)
             boolean2 = request.form['boolean2']
             integer1 = request.form['integer1']
 

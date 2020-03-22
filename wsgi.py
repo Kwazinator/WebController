@@ -1,7 +1,7 @@
 #!/home/flaskappdev/flaskappdev/flaskappenv/bin/python3.6
 import flaskr
 
-application = flaskr.create_app()
+app = flaskr.create_app()
 
 if __name__ == "__main__":
-    application.run()
+    app.run(host='0.0.0.0')
