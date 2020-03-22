@@ -1,0 +1,44 @@
+{% block header %}
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arvo|Dosis|Source+Sans+Pro" >
+      <link rel="stylesheet" type="text/css" href="/static/style.css">
+      <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
+      <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+      <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+      <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+      <title>Device{% block title %}{% endblock %}</title>
+
+  </head>
+</html>
+{% endblock %}
+
+{% block content %}
+<body>
+<h1>Controller</h1>
+<div>
+<label>boolean1 (between 0 and 1):</label>
+<input type="number" id="boolean1" name="quantity" min="0" max="1">
+
+<br></br>
+<label>boolean2 (between 0 and 1):</label>
+<input type="number" id="boolean2" name="quantity" min="0" max="1">
+
+<br></br>
+<label>integer1 (between 0 and 100):</label>
+<input type="number" id="integer1" name="quantity" min="1" max="100">
+</div>
+<div>
+      <button id='submit-btn' type="submit" value="Submit">Submit</button>
+      <label id="submit-confirmation"></label>
+</div>
+</body>
+{%include 'javascript/script.js' %}
+{% endblock %}
