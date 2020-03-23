@@ -1,13 +1,18 @@
 <script>
-$(document).ready(function() {
-    $('#boolean1').val({{device.boolean1}});
-    $('#boolean2').val({{device.boolean2}});
-    $('#integer1').val({{device.integer1}});
 
+//this is called when the page loads
+$(document).ready(function() {
+    $('#boolean1').val({{device.boolean1}}); //set the default values for element <input id=boolean1> in index.html
+    $('#boolean2').val({{device.boolean2}}); //more default values
+    $('#integer1').val({{device.integer1}}); //more
+
+    //this is called when <button id=submit-btn> element is clicked in index.html
     $('#submit-btn').click(function() {
-        var boolean1 = $('#boolean1').val();
-        var boolean2 = $('#boolean2').val();
-        var integer1 = $('#integer1').val();
+        var boolean1 = $('#boolean1').val(); //get current value of element <input id=boolean1>
+        var boolean2 = $('#boolean2').val(); //get value of element
+        var integer1 = $('#integer1').val(); //get value of element
+
+        //sends a POST request to /update where request.form['boolean1'] is = boolean1 in the browser and flashes a message
         $.ajax({
             url: "{{ url_for('index.update') }}",
             type: "POST",
@@ -27,6 +32,8 @@ $(document).ready(function() {
             }
         });
     });
+
+    //do not change, copy pasted from stackoverflow, code to flash success messages in jquery
     (function($) {
     $.fn.flash_message = function(options) {
 
